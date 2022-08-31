@@ -24,7 +24,7 @@ function square_number(x)
     output = x^2
     return output
 end
-...
+
 ```
 
 
@@ -38,10 +38,11 @@ Pkg.add("Plots")
 v = square_number
 using Plots
 plot(v,-10,10,ylabel="x^2",xlabel="x")
-...
+
 ```
 
 # Problem 2
+
 
 ## Problem 2.1
 
