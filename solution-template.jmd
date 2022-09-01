@@ -105,9 +105,47 @@ end
 # Problem 4
 
 ## Problem 4.1
+```julia
+# load the Pkg package manager
+import Pkg
+# activate the project environment. The "." references the current working directory. This can be changed to any particular path.
+Pkg.activate(".")
+# instantiate the project environment. This installs any needed packages.
+Pkg.instantiate()
+Pkg.add("Distributions")
+# load Distributions.jl
+using Distributions
+
+logmean = log(0.03)
+sd = .005
+log_normal_dist= LogNormal(logmean,sd)
+yt = rand(log_normal_dist,100)
+```
 
 ## Problem 4.2
+```julia
+function Phosphorus(a,yt,b,q,T,X0)
+  X = zeros(T)
+  X[1]=X0
+  t=1
+  while t != T
+    X[t+1] = X[t] + a + yt[t] + Xt^q/(1+Xt^q) -b*Xt
+    t += 1
+  end
+  return X
+end
+```
+
 
 ## Problem 4.3
+```julia
+X0 = 5
+a = 0.4
+q = 2
+b = 0.42
+result = Phosphorus(a,yt,b,q,100,X0)
+Plot(result,0,100,xlabel="time",ylabel="Phosphorus concentration")
+
+```
 
 # References
