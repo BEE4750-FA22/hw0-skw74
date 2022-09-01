@@ -79,14 +79,28 @@ function mean(x)
 end
 
 function demean(x)
-  c = x
+  c = copy(x)
   return c - ones(length(x))*mean(x)
 end
 ```
 
 ## Problem 3.3
-
+```julia
+f = zeros(10)
+for i in 1:length(f)
+  if i>2 && i<9
+    f[i]=1
+  end
+end
+```
 ## Problem 3.4
+```julia
+newmatrix = rand(5,5)
+numcolumns = size(newmatrix)[2]
+for i = 1:numcolumns
+  newmatrix[:,i] -= ones(numcolumns)*mean(newmatrix[:,i])
+end
+```
 
 # Problem 4
 
