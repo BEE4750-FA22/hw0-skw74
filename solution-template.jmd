@@ -45,8 +45,22 @@ plot(v,-10,10,ylabel="x^2",xlabel="x")
 
 
 ## Problem 2.1
+When $a$ is larger than the real $\sqrt{x}$, $x/a$ always ends up smaller than $\sqrt{x}$. This is true vice-versa
+as well. Thus, $\sqrt{x}$ has to be between the two.
 
 ## Problem 2.2
+```julia
+e = 10^-3
+function square_root(x)
+    a = x/2 #initial guess
+    while abs(a-(x/a)) > e
+      b = x/a
+      a = (b+a)/2
+    end
+    return a
+end
+square_root(2)
+```
 
 # Problem 3
 
