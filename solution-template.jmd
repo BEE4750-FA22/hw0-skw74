@@ -65,8 +65,24 @@ square_root(2)
 # Problem 3
 
 ## Problem 3.1
+` j r = rand(20)`
 
 ## Problem 3.2
+```julia
+function mean(x)
+  #x must be a vector
+  sum = 0
+  for i in x
+    sum = sum + i
+  end
+  return sum/length(x)
+end
+
+function demean(x)
+  c = x
+  return c - ones(length(x))*mean(x)
+end
+```
 
 ## Problem 3.3
 
